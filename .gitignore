@@ -1,0 +1,15 @@
+# Ignore dependencies
+/node_modules
+
+# Ignore build output
+/dist
+
+# Ignore development server config
+/vue.config.js
+
+# Ignore environment variables
+/.env
+
+# Ignore editor-specific files
+.idea
+.vscode
