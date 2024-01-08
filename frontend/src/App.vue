@@ -1,8 +1,17 @@
 <template>
-  <div class="wrapper">
-    Removing all unneeded code
-  </div>
+  <component v-bind:is="layout"></component>
 </template>
-
-<style scoped>
-</style>
+<script>
+import LayoutDefault from "@/layouts/Default.vue";
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    layout() {
+      return LayoutDefault;
+    },
+  },
+};
+</script>
+<style scoped></style>
