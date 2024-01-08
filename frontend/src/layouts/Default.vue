@@ -1,4 +1,6 @@
 <template>
-  <div class="green">Removing all unneeded code</div>
+  <v-app>
+    <v-app-bar></v-app-bar>
+  </v-app>
 </template>
 <style scoped></style>
