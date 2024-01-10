@@ -2,9 +2,9 @@
   <v-container class="center-content">
     <div class="nav-container center-content-vertical">
       <div class="margin-horizontal-15 center-content spread">
-          <router-link to="/"><div class="nav-btn center-content">Work</div></router-link>
-          <router-link to="/about"><div class="nav-btn center-content">About</div></router-link>        
-          <router-link to="/contact"><div class="nav-btn center-content">Contact</div></router-link>        
+          <router-link class="nav-btn center-content" to="/"><div>Work</div></router-link>
+          <router-link class="nav-btn center-content" to="/about"><div>About</div></router-link>        
+          <router-link class="nav-btn center-content" to="/contact"><div>Contact</div></router-link>        
       </div>
     </div>
   </v-container>
