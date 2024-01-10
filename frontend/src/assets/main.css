@@ -37,13 +37,20 @@ a,
 
 /* Nav bar */
 
+.nav-border-off {
+  border: 2px solid white;
+}
+.nav-border-on {
+  border: 2px solid black;
+}
+
+
 .nav-container {
   position: fixed;
   top: 20px;
   width: 350px;
   height: 70px;
   /* position: relative; */
-  border: 2px solid;
   border-radius: 40px;
   overflow: hidden;
 }
@@ -55,7 +62,7 @@ a,
   border-radius: 40px;
   overflow: hidden;
   color: black;
-
+  text-decoration: none;
 }
 
 .router-link-active {
