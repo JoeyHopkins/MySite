@@ -35,16 +35,22 @@ a,
 /* Nav bar */
 
 .nav-container {
-  width: 700px; /* Adjust the width as needed */
-  height: 70px; /* Adjust the height as needed */
+  width: 350px;
+  height: 70px;
+  position: relative;
+  border: 2px solid;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.nav-btn {
+  width: 100px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
   position: relative;
   border: 2px solid; /* Change the border color as desired */
   border-radius: 40px; /* Half of the height to make the half circles */
   overflow: hidden;
 }
-
-
-
 
 
 /* Universal */
@@ -56,4 +62,20 @@ a,
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+}
+
+.center-content-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.spread {
+  justify-content: space-between;
+}
+
+.margin-horizontal-15 {
+  margin-left: 15px;
+  margin-right: 15px;
 }
