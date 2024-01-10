@@ -1,5 +1,7 @@
 <template>
-  <component v-bind:is="layout"></component>
+  <v-app>
+    <component v-bind:is="layout"></component>
+  </v-app>
 </template>
 <script>
 import LayoutDefault from "@/layouts/Default.vue";
@@ -14,4 +16,3 @@ export default {
   },
 };
 </script>
-<style scoped></style>
