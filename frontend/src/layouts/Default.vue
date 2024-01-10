@@ -13,12 +13,20 @@
       <router-view/>
     </v-col>
   </v-row>
+  <v-row style="padding-top: 80px">
+    <v-col>
+      <component :is="view" />
+    </v-col>
+  </v-row>
 </template>
 <script>
+import Footer from '../components/Footer.vue'
+
 export default {
   data() {
     return {
-      scrollPosition: 0
+      scrollPosition: 0,
+      view: Footer
     };
   },
   mounted() {
