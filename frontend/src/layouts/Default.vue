@@ -1,6 +1,6 @@
 <template>
   <v-container class="center-content" id="scroll-target">
-    <div class="nav-container center-content-vertical" :class="isScrolled ? 'nav-border-on' : 'nav-border-off'">
+    <div class="nav-container center-content-vertical" :class="{ 'nav-fade-in': isScrolled, 'nav-fade-out': !isScrolled }">
       <div class="margin-horizontal-15 center-content spread">
           <router-link class="nav-btn center-content" :to="{ name: 'Home' }"><div>Work</div></router-link>
           <router-link class="nav-btn center-content" :to="{ name: 'About' }"><div>About</div></router-link>        

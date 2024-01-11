@@ -4,7 +4,7 @@
   width: 100vw;
   font-weight: normal;
   overflow-y: auto;
-  /* height: 150vh; */
+  height: 150vh;
   /* padding: 0px 15px */
 }
 
@@ -37,13 +37,19 @@ a,
 
 /* Nav bar */
 
-.nav-border-off {
-  border: 2px solid white;
-}
-.nav-border-on {
-  border: 2px solid black;
+.nav-container {
+  transition: background-color 1.0s ease, border-color 1.0s ease;
 }
 
+.nav-fade-in {
+  background-color: grey; /* Adjust the background color */
+  border-color: grey; /* Adjust the border color */
+}
+
+.nav-fade-out {
+  background-color: white; /* Adjust the background color */
+  border-color: white; /* Adjust the border color */
+}
 
 .nav-container {
   position: fixed;
