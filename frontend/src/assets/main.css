@@ -129,6 +129,13 @@ a,
   margin-top: 0;
 }
 
+/* Page Internals */
+.page-card {
+  width: 75%;
+  background-color: #D1AFF9 !important;
+  border-radius: 20px !important;
+}
+
 /* Universal */
 .center-text {
   text-align: center;
