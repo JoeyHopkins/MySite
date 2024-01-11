@@ -8,16 +8,12 @@
       </div>
     </div>
   </v-container>
-  <v-row style="padding-top: 80px">
+  <v-row class="main-page-containter">
     <v-col>
       <router-view/>
     </v-col>
   </v-row>
-  <v-row style="padding-top: 80px">
-    <v-col>
-      <component :is="view" />
-    </v-col>
-  </v-row>
+  <component :is="view"/>
 </template>
 <script>
 import Footer from '../components/Footer.vue'

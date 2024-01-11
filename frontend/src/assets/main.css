@@ -1,11 +1,8 @@
 @import './base.css';
 
 #app {
-  width: 100vw;
+  min-width: 100vw;
   font-weight: normal;
-  overflow-y: auto;
-  height: 150vh;
-  /* padding: 0px 15px */
 }
 
 /*
@@ -35,6 +32,39 @@ a,
   }
 } */
 
+/* Background */
+/* got gradiant background from https://alvarotrigo.com/blog/animated-backgrounds-css/ */
+.v-application__wrap {
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, purple 0%, DarkOrchid 25%, Indigo 51%, DarkViolet 100%);
+  -webkit-animation: AnimateBG 20s ease infinite;
+  animation: AnimateBG 20s ease infinite;
+}
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Nav bar */
 
 .nav-container {
@@ -42,13 +72,13 @@ a,
 }
 
 .nav-fade-in {
-  background-color: grey; /* Adjust the background color */
-  border-color: grey; /* Adjust the border color */
+  background-color: rgba(128, 128, 128, 0.25);
+  border-color: rgba(128, 128, 128, 0.25);
 }
 
 .nav-fade-out {
-  background-color: white; /* Adjust the background color */
-  border-color: white; /* Adjust the border color */
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .nav-container {
@@ -56,7 +86,6 @@ a,
   top: 20px;
   width: 350px;
   height: 70px;
-  /* position: relative; */
   border-radius: 40px;
   overflow: hidden;
 }
@@ -67,12 +96,37 @@ a,
   border: 2px solid;
   border-radius: 40px;
   overflow: hidden;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 .router-link-active {
-  color: purple;
+  color: pink;
+}
+
+/* Main Page */
+.main-page-containter {
+  padding-top: 80px; 
+  margin-bottom: 0; 
+  min-height: 93vh;
+}
+
+/* footer */
+.image-link {
+  max-width: 50px;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.image-link img {
+  width: 100%;
+  height: auto; 
+}
+
+.footer-container {
+  background-color: white;
+  margin-top: 0;
 }
 
 /* Universal */
@@ -106,18 +160,3 @@ a,
   display: flex;
   justify-content: flex-end;
 }
-
-/* footer */
-.image-link {
-  max-width: 50px;
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.image-link img {
-  width: 100%;
-  height: auto; 
-}
-
-
