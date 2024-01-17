@@ -85,22 +85,34 @@
       <h2 class="text-blue mx-5 py-3">
         Education
       </h2>
-      <h3 class="mx-5">
-        <b>Dakota State University, South Dakota</b>
-      </h3>
-      <div class="mx-5">
-        <h3>
-          <i>  
-            Bachelor of Computer Science
-          </i>
-        </h3>
-      </div>
-      <h4 class="mx-5 lighten-text">
-        June 2015 - December 2020
-      </h4>
-      <div class="mx-5 pb-5">
-        <a href="https://dsu.edu/" target="_blank" class="custom-link">https://dsu.edu/</a>
-      </div>
+      <v-row>
+        <div style="margin-top: 15px; margin-left: 35px;">
+          <img 
+            src="/src/assets/images/DakotaState.png" 
+            alt="Macguyvertech Logo" 
+            width="100" 
+            height="100"
+          >
+        </div>
+        <v-col>
+          <h3>
+            <b>Dakota State University, South Dakota</b>
+          </h3>
+          <div>
+            <h3>
+              <i>  
+                Bachelor of Computer Science
+              </i>
+            </h3>
+          </div>
+          <h4 class="lighten-text">
+            June 2015 - December 2020
+          </h4>
+          <div class="pb-5">
+            <a href="https://dsu.edu/" target="_blank" class="custom-link">https://dsu.edu/</a>
+          </div>
+        </v-col>
+      </v-row>
     </v-card>
   </v-container>
 
