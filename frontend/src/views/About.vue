@@ -92,8 +92,8 @@
           <img 
             src="/src/assets/images/DakotaState.png" 
             alt="Macguyvertech Logo" 
-            width="100" 
-            height="100"
+            width="80" 
+            height="80"
           >
         </div>
         <v-col>
@@ -125,8 +125,23 @@
     </h1>
     <div class="card-container">
       <v-card v-for="(item, index) in items" :key="index" class="skill-card">
-        <v-card-title>{{ item.skill }}</v-card-title>
-        <v-card-text>{{ item.length }}</v-card-text>
+        <v-row class="my-3 mx-5">
+            <div class="circle-img-container mt-4 mr-3">
+              <img 
+                :src="item.image"
+                alt="Macguyvertech Logo" 
+                class="circle-img"
+              />
+            </div>
+          <v-col>
+            <h3>
+              <b>
+                {{ item.skill }}
+              </b>
+            </h3>
+            <h3>Since {{ item.length }}</h3>
+          </v-col>
+        </v-row>
       </v-card>
     </div>
   </v-container>
@@ -138,9 +153,9 @@ export default {
       pdfPath: 'http://localhost:5173/' + 'src/assets/downloads/Resume.pdf',
       macTechStartDate: '2022-01-01',
       items: [
-        { skill: 'Card 1', length: 'Description for Card 1' },
-        { skill: 'Card 2', length: 'Description for Card 2' },
-        { skill: 'Card 3', length: 'Description for Card 3' }
+        { skill: 'Javascript', length: '2021', image: "/src/assets/images/skills/JavaScript-logo.png" },
+        { skill: 'Vue', length: '2022', image: "/src/assets/images/DakotaState.png" },
+        { skill: 'Vite', length: '2023', image: "/src/assets/images/DakotaState.png" }
       ]
     };
   },
@@ -207,7 +222,19 @@ export default {
 .skill-card {
   background-color: #D1AFF9 !important;
   border-radius: 20px;
+  min-width: 250px;
 }
 
+.circle-img-container {
+  width: 50px; /* Adjust the size of the container */
+  height: 50px; /* Adjust the size of the container */
+  overflow: hidden;
+  border-radius: 50%; /* Create a circle */
+}
 
+.circle-img {
+  width: 100%; /* Make sure the image covers the container */
+  height: 100%; /* Make sure the image covers the container */
+  object-fit: cover; /* Ensure the image is fully covered */
+}
 </style>
