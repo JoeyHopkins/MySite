@@ -117,6 +117,19 @@
       </v-row>
     </v-card>
   </v-container>
+  <v-container>
+    <h1 class="center-text text-blue">
+      <b>
+        Skills
+      </b>
+    </h1>
+    <div class="card-container">
+      <v-card v-for="(item, index) in items" :key="index" class="skill-card">
+        <v-card-title>{{ item.skill }}</v-card-title>
+        <v-card-text>{{ item.length }}</v-card-text>
+      </v-card>
+    </div>
+  </v-container>
 </template>
 <script>
 export default {
@@ -124,6 +137,11 @@ export default {
     return {
       pdfPath: 'http://localhost:5173/' + 'src/assets/downloads/Resume.pdf',
       macTechStartDate: '2022-01-01',
+      items: [
+        { skill: 'Card 1', length: 'Description for Card 1' },
+        { skill: 'Card 2', length: 'Description for Card 2' },
+        { skill: 'Card 3', length: 'Description for Card 3' }
+      ]
     };
   },
   methods: {
@@ -175,4 +193,21 @@ export default {
 .lighten-text {
   color: #555;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px; 
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  
+}
+
+.skill-card {
+  background-color: #D1AFF9 !important;
+  border-radius: 20px;
+}
+
+
 </style>
