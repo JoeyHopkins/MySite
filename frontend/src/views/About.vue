@@ -27,7 +27,7 @@
         >
       </div>
       <h4 class="mx-5 lighten-text">
-        January 2022 - PRESENT
+        January 2022 - PRESENT ({{ formattedMonthsSinceEnteredDate(macTechStartDate) }})
       </h4>
       <h3 class="mx-5">
         <b>
@@ -67,7 +67,9 @@
         June 2022 - August 2022 (3 months)
       </h4>
       <h3 class="mx-5">
-        Staghead Blockchain Services, Colorado (Remote) - 
+        <b>
+          Staghead Blockchain Services, Colorado (Remote) - 
+        </b>
         <i>  
           Full Stack Engineer / Blockchain Engineer
         </i>
@@ -115,19 +117,29 @@
       </v-row>
     </v-card>
   </v-container>
-
 </template>
-
 <script>
 export default {
   data() {
     return {
       pdfPath: 'http://localhost:5173/' + 'src/assets/downloads/Resume.pdf',
+      macTechStartDate: '2022-01-01',
     };
   },
   methods: {
     openPdfInNewTab() {
       window.open(this.pdfPath, '_blank');
+    },
+    formattedMonthsSinceEnteredDate(enteredDate) {
+      const monthsSinceEnteredDate = (new Date() - new Date(enteredDate)) / (30.44 * 24 * 60 * 60 * 1000);
+      
+      const years = Math.floor(monthsSinceEnteredDate / 12);
+      const months = Math.floor(monthsSinceEnteredDate) % 12;
+
+      const yearString = years > 0 ? `${years} ${years === 1 ? 'year' : 'years'}` : '';
+      const monthString = months > 0 ? `${months} ${months === 1 ? 'month' : 'months'}` : '';
+
+      return yearString && monthString ? `${yearString}, ${monthString}` : yearString || monthString || '0 months';
     },
   },
 };
