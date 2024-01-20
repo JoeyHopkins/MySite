@@ -9,28 +9,48 @@
       <v-tabs
         bg-color="transparent"
         center-active
+        v-model="tab"
+
       >
-        <v-tab>One</v-tab>
-        <v-tab>Two</v-tab>
-        <v-tab>Three</v-tab>
-        <v-tab>Four</v-tab>
-        <v-tab>Five</v-tab>
-        <v-tab>Six</v-tab>
-        <v-tab>Seven</v-tab>
-        <v-tab>Eight</v-tab>
-        <v-tab>Nine</v-tab>
-        <v-tab>Ten</v-tab>
-        <v-tab>Eleven</v-tab>
-        <v-tab>Twelve</v-tab>
-        <v-tab>Thirteen</v-tab>
-        <v-tab>Fourteen</v-tab>
-        <v-tab>Fifteen</v-tab>
-        <v-tab>Sixteen</v-tab>
-        <v-tab>Seventeen</v-tab>
-        <v-tab>Eighteen</v-tab>
-        <v-tab>Nineteen</v-tab>
-        <v-tab>Twenty</v-tab>
+        <!-- direction="vertical" -->
+        <v-tab value="option-One">One</v-tab>
+        <v-tab value="option-Two">Two</v-tab>
+        <v-tab value="option-Three">Three</v-tab>
+        <v-tab value="option-Four">Four</v-tab>
+        <v-tab value="option-Five">Five</v-tab>
+        <v-tab value="option-Six">Six</v-tab>
+        <v-tab value="option-Seven">Seven</v-tab>
+        <v-tab value="option-Eight">Eight</v-tab>
+        <v-tab value="option-Nine">Nine</v-tab>
+        <v-tab value="option-Ten">Ten</v-tab>
+        <v-tab value="option-Eleven">Eleven</v-tab>
+        <v-tab value="option-Twelve">Twelve</v-tab>
+        <v-tab value="option-Thirteen">Thirteen</v-tab>
+        <v-tab value="option-Fourteen">Fourteen</v-tab>
+        <v-tab value="option-Fifteen">Fifteen</v-tab>
+        <v-tab value="option-Sixteen">Sixteen</v-tab>
+        <v-tab value="option-Seventeen">Seventeen</v-tab>
+        <v-tab value="option-Eighteen">Eighteen</v-tab>
+        <v-tab value="option-Nineteen">Nineteen</v-tab>
+        <v-tab value="option-Twenty">Twenty</v-tab>
       </v-tabs>
+      <v-window v-model="tab">
+        <v-window-item value="option-One">
+          <v-card  class="page-card center-text">
+            Tab 1
+          </v-card>
+        </v-window-item>
+        <v-window-item value="option-Two">
+          <v-card  class="page-card center-text">
+            Tab 2
+          </v-card>
+        </v-window-item>
+        <v-window-item value="option-Three">
+          <v-card  class="page-card center-text">
+            Tab 3
+          </v-card>
+        </v-window-item>
+      </v-window>
     </v-card>
   </v-container>
 </template>
@@ -38,6 +58,7 @@
 export default {
   data() {
     return {
+      tab: 'option-One',
       items: [
         { skill: '010 Hex Editor', length: '2019', image: "/src/assets/images/skills/vite.png" },
         { skill: 'Anaconda', length: '2019', image: "/src/assets/images/skills/vite.png" },

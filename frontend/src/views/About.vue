@@ -118,39 +118,9 @@
     </v-card>
   </v-container>
   <component :is="skills"/>
-  <!-- <v-container>
-    <h1 class="center-text text-blue">
-      <b>
-        Skills
-      </b>
-    </h1>
-    <div class="card-container">
-      <v-card v-for="(item, index) in items" :key="index" class="skill-card">
-        <v-row class="my-3 mx-5">
-            <div class="circle-img-container mt-4 mr-3">
-              <img 
-                :src="item.image"
-                alt="Macguyvertech Logo" 
-                class="circle-img"
-                :class="item.class"
-              />
-            </div>
-          <v-col>
-            <h3>
-              <b>
-                {{ item.skill }}
-              </b>
-            </h3>
-            <h3>Since {{ item.length }}</h3>
-          </v-col>
-        </v-row>
-      </v-card>
-    </div>
-  </v-container> -->
 </template>
 <script>
 import Skills from '../components/experience/Skills.vue'
-
 export default {
   data() {
     return {
@@ -177,7 +147,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 
 .download-link {
