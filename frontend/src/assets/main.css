@@ -69,11 +69,12 @@ a,
 
 .nav-container {
   transition: background-color 1.0s ease, border-color 1.0s ease;
+  z-index: 2;
 }
 
 .nav-fade-in {
-  background-color: rgba(128, 128, 128, 0.25);
-  border-color: rgba(128, 128, 128, 0.25);
+  background-color: rgba(233, 126, 216, .85);
+  border-color: rgba(128, 128, 128, .85);
 }
 
 .nav-fade-out {
