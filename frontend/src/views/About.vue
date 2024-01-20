@@ -1,5 +1,5 @@
 <template>
-  <v-container class="center-content">
+  <v-container class="center-content fade-in">
     <div>
       <h1 class="center-text text-blue">
         <b>
@@ -11,13 +11,95 @@
       </div>
     </div>
   </v-container>
-  <v-container class="center-content">
+    <div class="spread-elements mt-5" >
+      <v-card class="dynamic-width-card center-text flip-in">
+        <div class="pt-5">
+            <img 
+              src="/src/assets/images/MacTechLogo.png" 
+              alt="Macguyvertech Logo" 
+              width="250" 
+              height="100"
+            >
+          </div>
+          <h3 class="mt-5">
+            <b>
+              MacGuyverTech 
+            </b>
+          </h3>
+          <h3 class="mx-5">
+            <i>
+              Lead Full Stack Engineer
+            </i>
+          </h3>
+          <h3 class="mx-5">
+            <i>
+              Project Manager
+            </i>
+          </h3>
+          <h4 class="mx-5 lighten-text">
+            January 2022 - PRESENT ({{ formattedMonthsSinceEnteredDate(macTechStartDate) }})
+          </h4>
+      </v-card>
+      <v-card class="dynamic-width-card center-text flip-in">
+        <div class="pt-3">
+          <img 
+            src="/src/assets/images/DakotaState.png" 
+            alt="Dakota State Logo" 
+            width="120" 
+            height="120"
+          >
+        </div>
+        <v-col>
+          <h3>
+            <b>Dakota State University</b>
+          </h3>
+          <div>
+            <h3>
+              <i>  
+                Bachelor of Computer Science
+              </i>
+            </h3>
+          </div>
+          <h4 class="lighten-text">
+            June 2015 - December 2020
+          </h4>
+          <div class="pb-3">
+            <a href="https://dsu.edu/" target="_blank" class="custom-link">https://dsu.edu/</a>
+          </div>
+        </v-col>
+      </v-card>
+      <v-card class="dynamic-width-card center-text flip-in">
+        <div style="margin-bottom: -50px;">
+          <img 
+            src="/src/assets/images/Staghead.png" 
+            alt="Staghead Logo" 
+            width="200" 
+            height="200"
+          >
+        </div>
+        <h3 class="mx-5">
+          <b>
+            Staghead Blockchain Services 
+          </b>
+        </h3>
+        <h3 class="mx-5">
+          <i>
+            Full Stack Engineer
+          </i>
+        </h3>
+        <h3 class="mx-5">
+          <i>
+            Blockchain Engineer
+          </i>
+        </h3>
+        <h4 class="mx-5 lighten-text pb-5">
+          June 2022 - August 2022 (3 months)
+        </h4>
+      </v-card>
+    </div>
+
+  <!-- <v-container class="center-content">
     <v-card class="page-card">
-      <h2 class="text-blue mx-5 py-3">
-        <b>
-          Experience
-        </b>
-      </h2>
       <div style="margin-bottom: -20px;">
         <img 
           src="/src/assets/images/MacTechLogo.png" 
@@ -117,7 +199,7 @@
       </v-row>
     </v-card>
   </v-container>
-  <component :is="skills"/>
+  <component :is="skills"/> -->
 </template>
 <script>
 import Skills from '../components/experience/Skills.vue'
@@ -195,15 +277,66 @@ export default {
 }
 
 .circle-img-container {
-  width: 50px; /* Adjust the size of the container */
-  height: 50px; /* Adjust the size of the container */
+  width: 50px;
+  height: 50px;
   overflow: hidden;
-  border-radius: 50%; /* Create a circle */
+  border-radius: 50%;
 }
 
 .circle-img {
-  width: 100%; /* Make sure the image covers the container */
-  height: 100%; /* Make sure the image covers the container */
-  object-fit: cover; /* Ensure the image is fully covered */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dynamic-width-card {
+  background-color: #D1AFF9 !important;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.spread-elements {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* CSS animations */
+@keyframes flipIn {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
+}
+
+.flip-in {
+  animation: flipIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 2.5s ease-out;
 }
 </style>

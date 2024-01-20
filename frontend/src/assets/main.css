@@ -107,7 +107,7 @@ a,
 
 /* Main Page */
 .main-page-containter {
-  padding-top: 80px; 
+  padding-top: 80px;
   margin-bottom: 0; 
   min-height: 93vh;
 }
@@ -168,3 +168,29 @@ a,
   display: flex;
   justify-content: flex-end;
 }
+
+/* 
+hide scrollbar if desired
+html {
+  overflow: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+} 
+
+on page
+<script>
+  mounted: function() {
+    let elHtml = document.getElementsByTagName('html')[0]
+    elHtml.style.overflowY = 'hidden'
+  },
+  destroyed: function() {
+    let elHtml = document.getElementsByTagName('html')[0]
+    elHtml.style.overflowY = null
+  }
+</script>
+*/
