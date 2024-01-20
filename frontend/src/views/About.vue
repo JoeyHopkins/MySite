@@ -27,7 +27,7 @@
         >
       </div>
       <h4 class="mx-5 lighten-text">
-        January 2022 - PRESENT
+        January 2022 - PRESENT ({{ formattedMonthsSinceEnteredDate(macTechStartDate) }})
       </h4>
       <h3 class="mx-5">
         <b>
@@ -67,7 +67,9 @@
         June 2022 - August 2022 (3 months)
       </h4>
       <h3 class="mx-5">
-        Staghead Blockchain Services, Colorado (Remote) - 
+        <b>
+          Staghead Blockchain Services, Colorado (Remote) - 
+        </b>
         <i>  
           Full Stack Engineer / Blockchain Engineer
         </i>
@@ -85,37 +87,175 @@
       <h2 class="text-blue mx-5 py-3">
         Education
       </h2>
-      <h3 class="mx-5">
-        <b>Dakota State University, South Dakota</b>
-      </h3>
-      <div class="mx-5">
-        <h3>
-          <i>  
-            Bachelor of Computer Science
-          </i>
-        </h3>
-      </div>
-      <h4 class="mx-5 lighten-text">
-        June 2015 - December 2020
-      </h4>
-      <div class="mx-5 pb-5">
-        <a href="https://dsu.edu/" target="_blank" class="custom-link">https://dsu.edu/</a>
-      </div>
+      <v-row>
+        <div style="margin-top: 15px; margin-left: 35px;">
+          <img 
+            src="/src/assets/images/DakotaState.png" 
+            alt="Macguyvertech Logo" 
+            width="80" 
+            height="80"
+          >
+        </div>
+        <v-col>
+          <h3>
+            <b>Dakota State University, South Dakota</b>
+          </h3>
+          <div>
+            <h3>
+              <i>  
+                Bachelor of Computer Science
+              </i>
+            </h3>
+          </div>
+          <h4 class="lighten-text">
+            June 2015 - December 2020
+          </h4>
+          <div class="pb-5">
+            <a href="https://dsu.edu/" target="_blank" class="custom-link">https://dsu.edu/</a>
+          </div>
+        </v-col>
+      </v-row>
     </v-card>
   </v-container>
-
+  <v-container>
+    <h1 class="center-text text-blue">
+      <b>
+        Skills
+      </b>
+    </h1>
+    <div class="card-container">
+      <v-card v-for="(item, index) in items" :key="index" class="skill-card">
+        <v-row class="my-3 mx-5">
+            <div class="circle-img-container mt-4 mr-3">
+              <img 
+                :src="item.image"
+                alt="Macguyvertech Logo" 
+                class="circle-img"
+                :class="item.class"
+              />
+            </div>
+          <v-col>
+            <h3>
+              <b>
+                {{ item.skill }}
+              </b>
+            </h3>
+            <h3>Since {{ item.length }}</h3>
+          </v-col>
+        </v-row>
+      </v-card>
+    </div>
+  </v-container>
 </template>
-
 <script>
 export default {
   data() {
     return {
       pdfPath: 'http://localhost:5173/' + 'src/assets/downloads/Resume.pdf',
+      macTechStartDate: '2022-01-01',
+      items: [
+        { skill: '010 Hex Editor', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Anaconda', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Bash', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Binary Ninja', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Bitbucket', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Bootstrap', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'C', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'C++', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'C#', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Calculus', length: '2018', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Computer Graphics', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'CSS3', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'D3.js', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Data Structures', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Discrete Mathmatics', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Expo', length: '2023', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Figma', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Filezilla', length: '2018', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'FTP', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'GDB', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Ghidra', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Git', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Handlebars', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'HTML5', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'IDA', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'INetSim', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Javascript', length: '2020', image: "/src/assets/images/skills/JavaScript-logo.png" },
+        { skill: 'Java', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Jira', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'JQuery', length: '2023', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'JSON', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Linear Algebra', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Linux', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'LISP', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Mailgun', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Maleware Analysis', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MariaDB', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MongoDB', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MS Excel', length: '2010', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MS PowerPoint', length: '2010', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MS Word', length: '2010', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'MySQL', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Navicat', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Node JS', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'NoSQL', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Object Oriented Programming', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'ODBC with ProvideX', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'OpenGL', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'PHP', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'PostgreSQL', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Postman', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Powershell', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Prettier', length: '2018', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Probability', length: '2018', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Process Monitor', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Project Management', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Prolog', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Puppeteer', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Python', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'React', length: '2023', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'React Native', length: '2023', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Reverse Engineering', length: '2018', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'SFTP', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Solidity', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'SQLite', length: '2020', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Sql Server', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'SSH', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Statistics', length: '2017', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Sublime', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Suricata', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Typescript', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'VBA', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Virtual Machines', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Visual Studio', length: '2015', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Visual Studio Code', length: '2016', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Vite', length: '2023', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Vue', length: '2022', image: "/src/assets/images/skills/Vue.png" },
+        { skill: 'Vuetify', length: '2021', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'VueX', length: '2021', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'WinDBG', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Windows', length: '2010', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Wireshark', length: '2019', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'Wordpress', length: '2022', image: "/src/assets/images/skills/vite.png" },
+        { skill: 'x64/x86 Assembly', length: '2018', image: "/src/assets/images/skills/vite.png" },
+      
+      ]
     };
   },
   methods: {
     openPdfInNewTab() {
       window.open(this.pdfPath, '_blank');
+    },
+    formattedMonthsSinceEnteredDate(enteredDate) {
+      const monthsSinceEnteredDate = (new Date() - new Date(enteredDate)) / (30.44 * 24 * 60 * 60 * 1000);
+      
+      const years = Math.floor(monthsSinceEnteredDate / 12);
+      const months = Math.floor(monthsSinceEnteredDate) % 12;
+
+      const yearString = years > 0 ? `${years} ${years === 1 ? 'year' : 'years'}` : '';
+      const monthString = months > 0 ? `${months} ${months === 1 ? 'month' : 'months'}` : '';
+
+      return yearString && monthString ? `${yearString}, ${monthString}` : yearString || monthString || '0 months';
     },
   },
 };
@@ -150,5 +290,34 @@ export default {
 
 .lighten-text {
   color: #555;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px; 
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  
+}
+
+.skill-card {
+  background-color: #D1AFF9 !important;
+  border-radius: 20px;
+  min-width: 250px;
+}
+
+.circle-img-container {
+  width: 50px; /* Adjust the size of the container */
+  height: 50px; /* Adjust the size of the container */
+  overflow: hidden;
+  border-radius: 50%; /* Create a circle */
+}
+
+.circle-img {
+  width: 100%; /* Make sure the image covers the container */
+  height: 100%; /* Make sure the image covers the container */
+  object-fit: cover; /* Ensure the image is fully covered */
 }
 </style>
