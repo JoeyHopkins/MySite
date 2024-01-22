@@ -56,11 +56,47 @@
     <v-expand-transition>
       <v-card
         v-show="cardData[index].expand"
-        height="100"
         width="90%"
-        class="mt-5 mx-auto page-card"
+        class="mt-10 mx-auto page-card"
       >
-        {{item.title}}
+
+      <div class="center-content" :style="item.image.style">
+          <v-img
+            :src="item.image.src"
+            :alt="item.image.alt"
+            :width="item.image.width"
+            :height="item.image.height"
+          />
+        </div>
+
+        <h1 class="center-content mt-5">
+          <b>
+            {{item.title}}
+          </b>
+        </h1>
+
+        <h2 class="center-content">
+          <b>
+            {{item.location}}
+          </b>
+        </h2>
+
+        <h2 class="center-content">
+          <i>
+            {{item.positions.join(' / ')}}
+          </i>
+        </h2>
+
+        <h2 class="center-content lighten-text">
+            {{item.dates.join(' ')}}
+        </h2>
+
+        <ul class="bullet-points mx-15 py-5">
+          <li v-for="(bullet, bulletsIndex) in item.bullets" :key="bulletsIndex">
+            {{ bullet }}
+          </li>
+        </ul>
+
       </v-card>
     </v-expand-transition>
   </div>
@@ -75,7 +111,8 @@ export default {
         expandedCards: [],
         cardData: [
           { 
-            title: 'Macguyvertech', 
+            title: 'Macguyvertech',
+            location: 'Glenolden, PA (Remote)',
             positions: ['Lead Full Stack Engineer', 'Project Manager'],
             dates: ['Jan. 2022 - PRESENT', '(' + this.machtechFormattedDate + ')'],
             image: {
@@ -86,9 +123,26 @@ export default {
             },
             bottomClass:"",
             expand: false,
+            bullets: [
+              "Integral piece to application development due to depth of knowledge and understanding of client systems",
+              "100% remote, trusted to work independently primarily using Node/Vue and SQL DBs to build business applications",
+              "Streamlined long term vision for project in project management role by establishing weekly sprints with client",
+              "Optimized test in production by leading architecture of production and software upgrades",
+              "Trusted to take decisive and accurate actions when conflicts arise",
+              "Forecasted and avoided blockers by organizing the team of developers and managing the project without incentive",
+              "Managed application upkeep and pushes to testing environments and production servers",
+              "Took Initiative in managing databases and writing scripts to refresh clients test data daily",
+              "Relied upon to revise and educate junior developers preventing sub par code from making it to production servers",
+              "Delegated practical tests for new developers in conjunction with the HR team",
+              "Led the onboarding and orientation for new developers",
+              "Worked with a team to scrape data from an API and use it to populate a client's database",
+              "Responsible for working with 3rd party vendors to ensure application expectations are met",
+              "Strong understanding of team capabilities, leading to accurate and efficient work assignments",
+            ],
           },
           { 
             title: 'Dakota State University', 
+            location: 'Madison, South Dakota (Remote)',
             positions: ['Bachelor of Computer Science'],
             dates: ['June 2015 - Dec. 2020'],
             image: {
@@ -99,9 +153,13 @@ export default {
             },
             bottomClass:"mb-14",
             expand: false,
+            bullets: [
+              "Dakota State details",
+            ],
           },
           { 
             title: 'Staghead Blockchain Services', 
+            location: 'Colorado (Remote)',
             positions: ['Full Stack Engineer', 'Blockchain Engineer'],
             dates: ['June 2022 - Aug. 2022', '(3 months)'],
             image: {
@@ -112,6 +170,12 @@ export default {
             },
             bottomClass:"",
             expand: false,
+            bullets: [
+              "Spearheaded the development of an intuitive and visually appealing user interface for a groundbreaking blockchain application.",
+              "Applied expertise in Solidity to seamlessly integrate and communicate with the Ethereum blockchain, enhancing the app's capabilities and ensuring a robust and secure foundation.",
+              "Led the creation of a comprehensive web app mockup, providing a compelling and user-friendly demonstration of the blockchain functionalities to potential clients.",
+              "Demonstrated a keen understanding of both front-end design principles and blockchain technology, resulting in a highly engaging and informative user experience.",
+            ],
           },
         ],
         cardDetails: [
