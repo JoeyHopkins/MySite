@@ -33,6 +33,7 @@
           <div class="details">
             <v-btn
               variant="plain"
+              @click="toggleExpand(index)"
             >
               <v-icon
                 size="large"
@@ -42,15 +43,27 @@
               <v-tooltip
                 activator="parent"
                 location="bottom"
-              >Open Details</v-tooltip>
+              >
+                Open Details
+              </v-tooltip>
             </v-btn>
-            
-
           </div>
         </div>
       </v-card>
     </div>
   </v-row>
+  <div v-for="(item, index) in cardDetails" :key="index">
+    <v-expand-transition>
+      <v-card
+        v-show="expandedCards[index]"
+        height="100"
+        width="90%"
+        class="mt-5 mx-auto page-card"
+      >
+        {{item.title}}
+      </v-card>
+    </v-expand-transition>
+  </div>
 </template>
 <script>
 export default {
@@ -59,6 +72,7 @@ export default {
     },
     data() {
       return {
+        expandedCards: [],
         cardData: [
           { 
             title: 'Macguyvertech', 
@@ -97,27 +111,41 @@ export default {
             bottomClass:""
           },
         ],
+        cardDetails: [
+          {
+            title: 'Macguyvertech Details',
+          },
+          {
+            title: 'Dakota State Details',
+          },
+          {
+            title: 'Staghead Details',
+          },
+        ],
       };
     },
+    methods: {
+      toggleExpand(index) {
+        if(this.expandedCards[index] == false)
+          this.expandedCards.fill(false);
+          
+        this.expandedCards[index] = !this.expandedCards[index];
+      },
+    },
+    mounted(){
+      this.expandedCards = Array(this.cardData.length).fill(false)
+    }
   };
 </script>
 <style>
 .details-container {
-  /* Make the details container take up the remaining space */
   flex-grow: 1;
-
-  /* Set the container to flex and column direction */
   display: flex;
   flex-direction: row;
-  /* align-self: flex-end; */
-
 }
 
 .details {
-  /* Align the text at the bottom of the container */
-  align-self: flex-end;
-  
-  /* Additional styling for the details */
+  align-self: flex-end;  
   margin-bottom: 10px; /* Adjust the margin as needed */
 }
 </style>
