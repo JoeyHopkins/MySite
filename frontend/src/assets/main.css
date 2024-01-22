@@ -142,7 +142,7 @@ a,
   background-color: #D1AFF9 !important;
   width: 300px;
   height: 350px;
-  border-radius: 20px;
+  border-radius: 20px !important;
 }
 
 /* Universal */

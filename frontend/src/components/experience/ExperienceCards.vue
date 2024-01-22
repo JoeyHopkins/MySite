@@ -33,8 +33,8 @@
           <div class="details">
             <v-btn
               variant="plain"
-              @click="toggleExpand(index)"
-            >
+              @click="toggleExpand(item)"
+              >
               <v-icon
                 size="large"
                 color="green-darken-2"
@@ -52,10 +52,10 @@
       </v-card>
     </div>
   </v-row>
-  <div v-for="(item, index) in cardDetails" :key="index">
+  <div v-for="(item, index) in cardData" :key="index">
     <v-expand-transition>
       <v-card
-        v-show="expandedCards[index]"
+        v-show="cardData[index].expand"
         height="100"
         width="90%"
         class="mt-5 mx-auto page-card"
@@ -84,7 +84,8 @@ export default {
               height: '170px',
               style: "margin-bottom: -10px; padding-top: 10px"
             },
-            bottomClass:""
+            bottomClass:"",
+            expand: false,
           },
           { 
             title: 'Dakota State University', 
@@ -96,7 +97,8 @@ export default {
               height: '120px',
               style: "padding-top: 25px; padding-bottom: 25px"
             },
-            bottomClass:"mb-14"
+            bottomClass:"mb-14",
+            expand: false,
           },
           { 
             title: 'Staghead Blockchain Services', 
@@ -108,7 +110,8 @@ export default {
               height: '225px',
               style: "margin-bottom: -60px; padding-top: 5px"
             },
-            bottomClass:""
+            bottomClass:"",
+            expand: false,
           },
         ],
         cardDetails: [
@@ -125,16 +128,14 @@ export default {
       };
     },
     methods: {
-      toggleExpand(index) {
-        if(this.expandedCards[index] == false)
-          this.expandedCards.fill(false);
-          
-        this.expandedCards[index] = !this.expandedCards[index];
+      toggleExpand(item) {
+        if(item.expand == false)
+          for(let card of this.cardData)
+            card.expand = false
+
+        item.expand = !item.expand;
       },
     },
-    mounted(){
-      this.expandedCards = Array(this.cardData.length).fill(false)
-    }
   };
 </script>
 <style>
