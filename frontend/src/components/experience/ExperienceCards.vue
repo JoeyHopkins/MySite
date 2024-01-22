@@ -1,7 +1,7 @@
 <template>
   <v-row class="center-content spread-elements pt-5">
     <div v-for="(item, index) in cardData" :key="index">
-      <v-card class="center-text dynamic-width-card pb-5 flip-in">
+      <v-card class="center-text dynamic-width-card flip-in" style="display: flex; flex-direction: column;">
         <div class="center-content" :style="item.image.style">
           <v-img
             :src="item.image.src"
@@ -12,7 +12,7 @@
         </div>
         <h3>
           <b>
-            {{item.title}} 
+            {{ item.title }}
           </b>
         </h3>
         <div v-for="(position, positionIndex) in item.positions" :key="positionIndex">
@@ -23,11 +23,30 @@
           </h3>
         </div>
         <div v-for="(dates, datesIndex) in item.dates" :key="datesIndex">
-          <h3 class="lighten-text">
+          <h3 class="lighten-text" :class="item.bottomClass">
             <i>
               {{ dates }}
             </i>
           </h3>
+        </div>
+        <div class="details-container center-content">
+          <div class="details">
+            <v-btn
+              variant="plain"
+            >
+              <v-icon
+                size="large"
+                color="green-darken-2"
+                icon="mdi-view-list"
+              ></v-icon>
+              <v-tooltip
+                activator="parent"
+                location="bottom"
+              >Open Details</v-tooltip>
+            </v-btn>
+            
+
+          </div>
         </div>
       </v-card>
     </div>
@@ -50,7 +69,8 @@ export default {
               alt: 'Macguyvertech.logo',
               height: '170px',
               style: "margin-bottom: -10px; padding-top: 10px"
-            }
+            },
+            bottomClass:""
           },
           { 
             title: 'Dakota State University', 
@@ -61,7 +81,8 @@ export default {
               alt: 'Dakota State Logo',
               height: '120px',
               style: "padding-top: 25px; padding-bottom: 25px"
-            }
+            },
+            bottomClass:"mb-14"
           },
           { 
             title: 'Staghead Blockchain Services', 
@@ -72,17 +93,31 @@ export default {
               alt: 'Staghead Logo',
               height: '225px',
               style: "margin-bottom: -60px; padding-top: 5px"
-            }
+            },
+            bottomClass:""
           },
         ],
       };
     },
   };
 </script>
-
 <style>
-.spread-elements {
+.details-container {
+  /* Make the details container take up the remaining space */
+  flex-grow: 1;
+
+  /* Set the container to flex and column direction */
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  /* align-self: flex-end; */
+
+}
+
+.details {
+  /* Align the text at the bottom of the container */
+  align-self: flex-end;
+  
+  /* Additional styling for the details */
+  margin-bottom: 10px; /* Adjust the margin as needed */
 }
 </style>

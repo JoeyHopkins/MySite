@@ -171,6 +171,11 @@ a,
   justify-content: space-between;
 }
 
+.spread-elements {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .margin-horizontal-15 {
   margin-left: 15px;
   margin-right: 15px;
