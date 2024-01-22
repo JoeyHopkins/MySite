@@ -37,14 +37,14 @@
               >
               <v-icon
                 size="large"
-                color="green-darken-2"
-                icon="mdi-view-list"
+                :color="item.expand == false ? 'green-darken-2' : 'red-darken-2'"
+                :icon="item.expand == false ? 'mdi-view-list' : 'mdi-close'"
               ></v-icon>
               <v-tooltip
                 activator="parent"
                 location="bottom"
               >
-                Open Details
+                {{item.expand == false ? 'Open Details' : 'Close Details'}}
               </v-tooltip>
             </v-btn>
           </div>
@@ -147,6 +147,6 @@ export default {
 
 .details {
   align-self: flex-end;  
-  margin-bottom: 10px; /* Adjust the margin as needed */
+  margin-bottom: 10px;
 }
 </style>
