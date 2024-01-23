@@ -101,7 +101,7 @@
           color="purple"
         >
         </v-divider>
-        <v-row class="mx-5 my-5 spread center-text">
+        <v-row class="mx-10 my-5 spread center-text">
           <v-card v-for="(skill, skillIndex) in item.techStack" :key="skillIndex" class="skill-card mt-5">
             <v-row class="my-3 mx-5">
                 <div class="circle-img-container  mr-3">
@@ -166,12 +166,17 @@ export default {
             ],
             techStack: [
               { name: 'Javascript', image: '/src/assets/images/skills/vite.png' },
+              { name: 'HTML', image: '/src/assets/images/skills/vite.png' },
+              { name: 'CSS', image: '/src/assets/images/skills/vite.png' },
               { name: 'Node.js', image: '/src/assets/images/skills/vite.png' },
               { name: 'Vue', image: '/src/assets/images/skills/vite.png' },
               { name: 'PHP', image: '/src/assets/images/skills/vite.png' },
               { name: 'Wordpress', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Powershell', image: '/src/assets/images/skills/vite.png' },
               { name: 'SQL Server', image: '/src/assets/images/skills/vite.png' },
-              { name: 'SQL Server', image: '/src/assets/images/skills/vite.png' },
+              { name: 'MYSQL', image: '/src/assets/images/skills/vite.png' },
+              { name: 'ODBC with ProvideX', image: '/src/assets/images/skills/vite.png' },
+              { name: 'VBA', image: '/src/assets/images/skills/vite.png' },
             ],
           },
           { 
@@ -191,7 +196,16 @@ export default {
               "Dakota State details",
             ],
             techStack: [
-              { name: 'Test', image: '/src/assets/images/skills/vite.png' },
+              { name: 'C', image: '/src/assets/images/skills/vite.png' },
+              { name: 'C++', image: '/src/assets/images/skills/vite.png' },
+              { name: 'C#', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Java', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Python', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Bash', image: '/src/assets/images/skills/vite.png' },
+              { name: 'x86/x64 Assembly', image: '/src/assets/images/skills/vite.png' },
+              { name: 'MySQL', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Prolog', image: '/src/assets/images/skills/vite.png' },
+              { name: 'LISP', image: '/src/assets/images/skills/vite.png' },
             ],
           },
           { 
@@ -214,7 +228,11 @@ export default {
               "Demonstrated a keen understanding of both front-end design principles and blockchain technology, resulting in a highly engaging and informative user experience.",
             ],
             techStack: [
-              { name: 'Test', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Vue', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Javascript', image: '/src/assets/images/skills/vite.png' },
+              { name: 'HTML', image: '/src/assets/images/skills/vite.png' },
+              { name: 'CSS', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Solidity', image: '/src/assets/images/skills/vite.png' },
             ],
           },
         ],
@@ -246,7 +264,7 @@ export default {
 .skill-card {
   background-color: lightpink !important;
   border-radius: 20px !important;
-  width: 250px;
+  /* width: 250px; */
 }
 
 .circle-img-container {
