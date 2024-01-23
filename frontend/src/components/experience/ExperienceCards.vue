@@ -59,7 +59,6 @@
         width="90%"
         class="mt-10 mx-auto page-card"
       >
-
       <div class="center-content" :style="item.image.style">
           <v-img
             :src="item.image.src"
@@ -68,35 +67,61 @@
             :height="item.image.height"
           />
         </div>
-
         <h1 class="center-content mt-5">
           <b>
             {{item.title}}
           </b>
         </h1>
-
         <h2 class="center-content">
           <b>
             {{item.location}}
           </b>
         </h2>
-
         <h2 class="center-content">
           <i>
             {{item.positions.join(' / ')}}
           </i>
         </h2>
-
         <h2 class="center-content lighten-text">
             {{item.dates.join(' ')}}
         </h2>
-
         <ul class="bullet-points mx-15 py-5">
           <li v-for="(bullet, bulletsIndex) in item.bullets" :key="bulletsIndex">
             {{ bullet }}
           </li>
         </ul>
-
+        <h2 class="center-content pt-5">
+          <b>
+            Tech Stack
+          </b>
+        </h2>
+        <v-divider
+          :thickness="5"
+          class="border-opacity-75 mx-10"
+          color="purple"
+        >
+        </v-divider>
+        <v-row class="mx-5 my-5 spread center-text">
+          <v-card v-for="(skill, skillIndex) in item.techStack" :key="skillIndex" class="skill-card mt-5">
+            <v-row class="my-3 mx-5">
+                <div class="circle-img-container  mr-3">
+                  <img 
+                    :src="skill.image"
+                    alt="Macguyvertech Logo" 
+                    class="circle-img"
+                    :class="item.class"
+                  />
+                </div>
+              <v-col>
+                <h3>
+                  <b>
+                    {{ skill.name }}
+                  </b>
+                </h3>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-row>
       </v-card>
     </v-expand-transition>
   </div>
@@ -139,6 +164,15 @@ export default {
               "Responsible for working with 3rd party vendors to ensure application expectations are met",
               "Strong understanding of team capabilities, leading to accurate and efficient work assignments",
             ],
+            techStack: [
+              { name: 'Javascript', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Node.js', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Vue', image: '/src/assets/images/skills/vite.png' },
+              { name: 'PHP', image: '/src/assets/images/skills/vite.png' },
+              { name: 'Wordpress', image: '/src/assets/images/skills/vite.png' },
+              { name: 'SQL Server', image: '/src/assets/images/skills/vite.png' },
+              { name: 'SQL Server', image: '/src/assets/images/skills/vite.png' },
+            ],
           },
           { 
             title: 'Dakota State University', 
@@ -155,6 +189,9 @@ export default {
             expand: false,
             bullets: [
               "Dakota State details",
+            ],
+            techStack: [
+              { name: 'Test', image: '/src/assets/images/skills/vite.png' },
             ],
           },
           { 
@@ -176,17 +213,9 @@ export default {
               "Led the creation of a comprehensive web app mockup, providing a compelling and user-friendly demonstration of the blockchain functionalities to potential clients.",
               "Demonstrated a keen understanding of both front-end design principles and blockchain technology, resulting in a highly engaging and informative user experience.",
             ],
-          },
-        ],
-        cardDetails: [
-          {
-            title: 'Macguyvertech Details',
-          },
-          {
-            title: 'Dakota State Details',
-          },
-          {
-            title: 'Staghead Details',
+            techStack: [
+              { name: 'Test', image: '/src/assets/images/skills/vite.png' },
+            ],
           },
         ],
       };
@@ -213,4 +242,24 @@ export default {
   align-self: flex-end;  
   margin-bottom: 10px;
 }
+
+.skill-card {
+  background-color: lightpink !important;
+  border-radius: 20px !important;
+  width: 250px;
+}
+
+.circle-img-container {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 </style>
