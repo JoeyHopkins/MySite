@@ -101,25 +101,13 @@
           color="purple"
         >
         </v-divider>
-        <v-row class="mx-10 my-5 spread center-text">
-          <v-card v-for="(skill, skillIndex) in item.techStack" :key="skillIndex" class="skill-card mt-5">
-            <v-row class="my-3 mx-5">
-                <div class="circle-img-container  mr-3">
-                  <img 
-                    :src="skill.image"
-                    alt="Macguyvertech Logo" 
-                    class="circle-img"
-                    :class="item.class"
-                  />
-                </div>
-              <v-col>
-                <h3>
-                  <b>
-                    {{ skill.name }}
-                  </b>
-                </h3>
-              </v-col>
-            </v-row>
+        <v-row class="mx-10 my-5 center-text">
+          <v-card v-for="(tech, techIndex) in item.techStack" :key="techIndex" class="mt-2 mx-1 skill-card">
+            <h4 class="mx-3 my-1">
+              <b>
+                {{ tech.name }}
+              </b>
+            </h4>
           </v-card>
         </v-row>
       </v-card>
@@ -178,6 +166,15 @@ export default {
               { name: 'ODBC with ProvideX', image: '/src/assets/images/skills/vite.png' },
               { name: 'VBA', image: '/src/assets/images/skills/vite.png' },
             ],
+            skills: [
+              { name: 'Git' },
+              { name: 'FTP' },
+              { name: 'SFTP' },
+              { name: 'SSH' },
+              { name: 'Project Management' },
+              { name: 'Jira' },
+              { name: 'Client Communication' },
+            ],
           },
           { 
             title: 'Dakota State University', 
@@ -207,6 +204,32 @@ export default {
               { name: 'Prolog', image: '/src/assets/images/skills/vite.png' },
               { name: 'LISP', image: '/src/assets/images/skills/vite.png' },
             ],
+            seniorClasses: [
+              { 
+                name: 'Malware Analysis',
+                experience: [
+                  { name: 'General Debugger (GDB)' },
+                  { name: 'IDA' },
+                  { name: 'WinDBG' },
+                  { name: 'Wireshark' },
+                  { name: 'Binary Ninja' },
+                  { name: 'Ghidra' },
+                  { name: '010 Hex Editor' },
+                  { name: 'INetSim' },
+                  { name: 'Suricata' },
+                  { name: 'Process Monitor' },
+                  { name: 'Virtual Machines' },
+                  { name: 'x86/x64 Assembly' },
+                ],
+              },
+              { name: 'Reverse Engineering' },
+              { name: 'Assembly' },
+              { name: 'Object Oriented Design' },
+              { name: 'Artificial Intelligence' },
+              { name: 'Jira' },
+              { name: 'Operating Systems' },
+              { name: 'Paralell Computing' },
+            ]
           },
           { 
             title: 'Staghead Blockchain Services', 
