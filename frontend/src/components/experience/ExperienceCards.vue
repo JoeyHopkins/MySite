@@ -38,6 +38,11 @@
       </v-card>
     </div>
   </v-row>
+
+
+
+
+
   <div v-for="(item, index) in cardData" :key="index">
     <v-expand-transition>
       <v-card v-show="cardData[index].expand" width="90%" class="mt-10 mx-auto page-card">
@@ -62,32 +67,69 @@
         <h2 class="center-content lighten-text">
           {{ item.dates.join(' ') }}
         </h2>
-        <ul class="bullet-points mx-15 py-5">
-          <li v-for="(bullet, bulletsIndex) in item.bullets" :key="bulletsIndex">
-            {{ bullet }}
-          </li>
-        </ul>
-        <v-card class="mx-10 mb-10">
-          <v-expansion-panels multiple variant="accordion" style="background-color:darkorchid">
-            <v-expansion-panel v-for="(item, index) in item.expandableData" :key="index"
-              style="background-color: blueviolet;">
-              <v-expansion-panel-title v-slot="{ open }" style="display: flex; justify-content: center; color: white;">
-                <v-row>
-                  {{ item.sectionName }}
-                </v-row>
-              </v-expansion-panel-title>
 
-              <v-expansion-panel-text>
-                <v-row class="mx-1 my-1">
-                  <v-card v-for="(dataItem, dataIndex) in item.items" :key="dataIndex"
-                    class="skill-card mt-3 mx-2 center-text px-5 py-2">
-                    {{ dataItem.name }}
-                  </v-card>
-                </v-row>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-card>
+        <div v-if="item.type == 'Work'">
+          <ul class="bullet-points mx-15 py-5">
+            <li v-for="(bullet, bulletsIndex) in item.bullets" :key="bulletsIndex">
+              {{ bullet }}
+            </li>
+          </ul>
+          <v-card class="mx-10 mb-10">
+            <v-expansion-panels multiple variant="accordion" style="background-color:darkorchid">
+              <v-expansion-panel v-for="(item, index) in item.expandableData" :key="index"
+                style="background-color: blueviolet;">
+                <v-expansion-panel-title v-slot="{ open }" style="display: flex; justify-content: center; color: white;">
+                  <v-row class="center-content">
+                    {{ item.sectionName }}
+                  </v-row>
+                </v-expansion-panel-title>
+
+                <v-expansion-panel-text>
+                  <v-row class="mx-1 my-1">
+                    <v-card v-for="(dataItem, dataIndex) in item.items" :key="dataIndex"
+                      class="skill-card mt-3 mx-2 center-text px-5 py-2">
+                      {{ dataItem.name }}
+                    </v-card>
+                  </v-row>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </v-card>
+        </div>
+
+
+        <div v-if="item.type == 'Education'">
+          <h1 class="center-text mt-5">
+            <b>
+              Computer Science Classes
+            </b>
+          </h1>
+          <v-divider :thickness="5" class="border-opacity-75 mx-10 mb-3" color="purple">
+          </v-divider>
+
+          <v-card class="mx-10 mb-10">
+            <v-expansion-panels multiple variant="accordion" style="background-color:darkorchid">
+              <v-expansion-panel v-for="(item, index) in item.expandableData" :key="index"
+                style="background-color: blueviolet;">
+                <v-expansion-panel-title v-slot="{ open }" style="display: flex; justify-content: center; color: white;">
+                  <v-row class="center-content">
+                    {{ item.className }}
+                  </v-row>
+                </v-expansion-panel-title>
+
+                <v-expansion-panel-text>
+                  <v-row class="mx-1 my-1">
+                    <v-card v-for="(dataItem, dataIndex) in item.items" :key="dataIndex"
+                      class="skill-card mt-3 mx-2 center-text px-5 py-2">
+                      {{ dataItem.name }}
+                    </v-card>
+                  </v-row>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </v-card>
+
+        </div>
       </v-card>
     </v-expand-transition>
   </div>
@@ -103,6 +145,7 @@ export default {
       cardData: [
         {
           title: 'Macguyvertech',
+          type: 'Work',
           location: 'Glenolden, PA (Remote)',
           positions: ['Lead Full Stack Engineer', 'Project Manager'],
           dates: ['Jan. 2022 - PRESENT', '(' + this.machtechFormattedDate + ')'],
@@ -134,20 +177,20 @@ export default {
             {
               sectionName: "Tech Stack",
               items: [
-                { name: 'Javascript'},
-                { name: 'Node.js'},
-                { name: 'Vuetify'},
-                { name: 'Bootstrap'},
-                { name: 'HTML'},
-                { name: 'CSS'},
-                { name: 'Vue'},
-                { name: 'PHP'},
-                { name: 'Wordpress'},
-                { name: 'Powershell'},
-                { name: 'SQL Server'},
-                { name: 'MYSQL'},
-                { name: 'ODBC with ProvideX'},
-                { name: 'VBA'},
+                { name: 'Javascript' },
+                { name: 'Node.js' },
+                { name: 'Vuetify' },
+                { name: 'Bootstrap' },
+                { name: 'HTML' },
+                { name: 'CSS' },
+                { name: 'Vue' },
+                { name: 'PHP' },
+                { name: 'Wordpress' },
+                { name: 'Powershell' },
+                { name: 'SQL Server' },
+                { name: 'MYSQL' },
+                { name: 'ODBC with ProvideX' },
+                { name: 'VBA' },
               ]
             },
             {
@@ -166,6 +209,7 @@ export default {
         },
         {
           title: 'Dakota State University',
+          type: 'Education',
           location: 'Madison, South Dakota (Remote)',
           positions: ['Bachelor of Computer Science'],
           dates: ['June 2015 - Dec. 2020'],
@@ -177,20 +221,28 @@ export default {
           },
           bottomClass: "mb-14",
           expand: false,
-          bullets: [
-            "Dakota State details",
+
+          expandableData: [
+            { className: "Artificial Intelligence", },
+            { className: 'Reverse Engineering' },
+            { className: 'Assembly' },
+            { className: 'Object Oriented Design' },
+            { className: 'Artificial Intelligence' },
+            { className: 'Operating Systems' },
+            { className: 'Paralell Computing' },
+            { className: 'Malware Analysis' },
           ],
           techStack: [
-            { name: 'C', image: '/src/assets/images/skills/vite.png' },
-            { name: 'C++', image: '/src/assets/images/skills/vite.png' },
-            { name: 'C#', image: '/src/assets/images/skills/vite.png' },
-            { name: 'Java', image: '/src/assets/images/skills/vite.png' },
-            { name: 'Python', image: '/src/assets/images/skills/vite.png' },
-            { name: 'Bash', image: '/src/assets/images/skills/vite.png' },
-            { name: 'x86/x64 Assembly', image: '/src/assets/images/skills/vite.png' },
-            { name: 'MySQL', image: '/src/assets/images/skills/vite.png' },
-            { name: 'Prolog', image: '/src/assets/images/skills/vite.png' },
-            { name: 'LISP', image: '/src/assets/images/skills/vite.png' },
+            { name: 'C' },
+            { name: 'C++' },
+            { name: 'C#' },
+            { name: 'Java' },
+            { name: 'Python' },
+            { name: 'Bash' },
+            { name: 'x86/x64 Assembly' },
+            { name: 'MySQL' },
+            { name: 'Prolog' },
+            { name: 'LISP' },
           ],
           seniorClasses: [
             {
@@ -221,6 +273,7 @@ export default {
         },
         {
           title: 'Staghead Blockchain Services',
+          type: 'Work',
           location: 'Colorado (Remote)',
           positions: ['Full Stack Engineer', 'Blockchain Engineer'],
           dates: ['June 2022 - Aug. 2022', '(3 months)'],
@@ -242,12 +295,12 @@ export default {
             {
               sectionName: "Tech Stack",
               items: [
-                { name: 'Vue'},
-                { name: 'Javascript'},
-                { name: 'CSS'},
-                { name: 'Node.js'},
-                { name: 'HTML'},
-                { name: 'Solidity'},
+                { name: 'Vue' },
+                { name: 'Javascript' },
+                { name: 'CSS' },
+                { name: 'Node.js' },
+                { name: 'HTML' },
+                { name: 'Solidity' },
               ]
             },
           ],
