@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       pdfPath: 'http://localhost:5173/' + 'src/assets/downloads/Resume.pdf',
-      macTechStartDate: '2022-02-01',
+      macTechStartDate: '2022-01-01',
       skills: Skills,
       experienceCards: ExperienceCards,
     };
